@@ -1,7 +1,7 @@
-title: NBAGamePrediction
+title: nbaWebsite
 description: AI for Sports
 
 # For GitHub
-baseurl: "/NBAGamePrediction"
+baseurl: "/nbaWebsite"
 # For local development
-# baseurl: "/NBAGamePrediction/"
+# baseurl: "/nbaWebsite/"
