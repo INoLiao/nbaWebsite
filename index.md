@@ -8,26 +8,26 @@ title: NBA Game Prediction
 
 ## Abstract
 <div align="justify">
-Predicting NBA games is not an easy task. Convential data analysis and statistic approaches are usually complicated and the accuracy is not high. In this work, a machine learning based method is proposed and the complete design flow is thoroughly introduced and explained. 8 single-stage machine learning models are trained and compared. More complex composite models such as voting mechanism and stacking method are also designed and elaborated. The proposed model reaches 76.8% accuracy on predicting all 2018 NBA playoffs. Furthermore, for Eastern Conference Final, Western Conference Finals, and Conference Finals, our model achieves extrodinary prediction accuracy of 85.7%, 71.4%, and 100%, respectively. The source code and dataset are available <a href="https://github.com/INoLiao/nbaGamePrediction" target="_blank">here</a>.
+Predicting NBA games is not an easy task. Conventional data analysis and statistic approaches are usually complicated and the accuracy is not high. In this work, a machine learning based method is proposed and the complete design flow is thoroughly introduced and explained. 8 single-stage machine learning models are trained and compared. More complex composite models such as voting mechanism and stacking method are also designed and elaborated. The proposed model reaches 76.8% accuracy on predicting all 2018 NBA playoffs. Furthermore, for the Eastern Conference Final, Western Conference Finals, and Conference Finals, our model achieves an extraordinary prediction accuracy of 85.7%, 71.4%, and 100%, respectively. The source code and dataset are available <a href="https://github.com/INoLiao/nbaGamePrediction" target="_blank">here</a>.
 </div>
 
 ## Problem Definition
 <div align="justify">
-The mission of this work is to precisely predict NBA games' winning and losing result. Machine learning models are trained to predict game results based on the information of two teams' recent status. The idea is expressed as in Figure 1. Beside game winning prediction, information of the prediction's confidence level is also valuable for us to understand how intense the matchup might be.
+The mission of this work is to precisely predict NBA games' winning and losing result. Machine learning models are trained to predict game results based on the information of two teams' recent status. The idea is expressed as in Figure 1. Beside game-winning prediction, information of the prediction's confidence level is also valuable for us to understand how intense the matchup might be.
 </div>
 
 <br>
 <img src="{{ site.baseurl }}/assets/img/problem_definition_1.png" alt="Problem Definition"/>
-<center><h4> Figrue 1: Problem definition block diagram. </h4></center>
+<center><h4> Figrue 1: Problem definition. </h4></center>
 
 ## Dataset
 <div align="justify">
-This work predicts NBA games based on the dataset collected from  <a href="https://stats.nba.com" target="_blank">official NBA stats website</a>. A crawler program is designed to scrape the game boxes and save the data automatically. Details about the crawler design are available <a href="https://github.com/INoLiao/nbaGamePrediction" target="_blank">here</a>. NBA games, including seasons and playoffs, from 1985 to 2018 are collected. The dataset contains 68,458 season matches and 4,816 playoff matches. Figure 2 shows the number of games played by all 30 NBA teams. Due to various history from each team, number of games for 30 teams are not homogeneous. Moreover, since there are at most 16 teams entitled to enter playoff each year, number of playoff games played by each team is different as well.
+This work predicts NBA games based on the dataset collected from the <a href="https://stats.nba.com" target="_blank">official NBA stats website</a>. A crawler program is designed to scrape the game boxes and save the data automatically. Details about the crawler design are available <a href="https://github.com/INoLiao/nbaGamePrediction" target="_blank">here</a>. NBA games, including seasons and playoffs, from 1985 to 2018 are collected. The dataset contains 68,458 season matches and 4,816 playoff matches. Figure 2 shows the number of games played by all 30 NBA teams. Due to various history from each team, the number of games for 30 teams are not homogeneous. Moreover, since there are at most 16 teams entitled to enter playoff each year, the number of playoff games played by each team is different as well.
 </div>
 
 <br>
 <img src="{{ site.baseurl }}/assets/img/dataset_1.png" alt="Number of games played by each team"/>
-<center><h4> Figrue 2: Statistics of number of games played by each NBA team. </h4></center>
+<center><h4> Figrue 2: Statistics of the number of games played by each NBA team. </h4></center>
 
 <div align="justify">
 Before processing our data, a classification regarding data types is conducted. Table 1 shows data types of the dataset. As we can see, most of the data are numeric. There is one categorical data, Team, and there are two binary data, Win/Lose and Home/Away. Our target is to precisely predict which team wins a game when two teams meet. Therefore, Win/Lose is the label and our machine learning model predicts the Win/Lose outcome and provides the confidence level of its prediction.
@@ -55,7 +55,7 @@ Before processing our data, a classification regarding data types is conducted. 
 
 ## Data Preprocessing and Feature Extraction
 <div align="justify">
-Typical data preprocessing is conducted as shown in Figure 3. Preprocessing includs data cleaning, one-hot encoding, numeric data normalization, game pairing, validity checking, etc. The final legitimate data volume is 61,368, including seasons and playoffs.
+Typical data preprocessing is conducted as shown in Figure 3. Preprocessing includes data cleaning, one-hot encoding, numeric data normalization, game pairing, validity checking, etc. The final legitimate data volume is 61,368, including seasons and playoffs.
 </div>
 
 <br>
@@ -76,12 +76,12 @@ To train machine learning models, feature extraction is carried out as shown in 
 
 ## Model Training and Testing
 <div align="justify">
-After data preprocessing and feature extraction are completed, model training and testing can be proceeded. In this section, grid search with cross validation is firstly applied to find the optimal model parameters. Afterwards, data size evaluation is conducted to help us understand how data volume influences the model performance. Then, voting and stacking models are introduced. At last, a comprehensive performance comparison of differet machine learning models are presented.
+After data preprocessing and feature extraction are completed, model training and testing can proceed. In this section, grid search with cross validation is firstly applied to find the optimal model parameters. Afterward, data size evaluation is conducted to help us understand how data volume influences the model performance. Then, voting and stacking models are introduced. At last, a comprehensive performance comparison of different machine learning models is presented.
 </div>
 
 ### Grid Search with Cross Validation
 <div align="justify">
-8 different frequently used single-stage machine learning models are analyzed in this work. Model parameters are optimized by grid search. To prevent possible overfitting issue that happens frequently in model training, cross validation is applied. Table 2 presents which parameters are considered and in what ranges are they examined. Note that since Naïve Bayes model has no parameters to choose, it does not require grid search.
+8 different frequently used single-stage machine learning models are analyzed in this work. Model parameters are optimized by grid search. To prevent possible overfitting issue that happens frequently in model training, cross validation is applied. Table 2 presents which parameters are considered and in what ranges are they examined. Note that since the Naïve Bayes model has no parameters to choose, it does not require grid search.
 </div>
 
 <center><h4> Table 2: Grid Search Parameters </h4></center>
@@ -118,7 +118,7 @@ After data preprocessing and feature extraction are completed, model training an
 
 ### Data Size Evaluation
 <div align="justify">
-The data size evaluation is an important step when training models. Since the play style of NBA games changes rapidly as time goes, training models with more data does not mean a better prediction accuracy. As a result, relation between training data size and performance is evaluated and the outcome is presented in Table 3. As shown in the table, training data covering three-year previous games presents the best performance and it is chosen as the optimal dataset for all our models.
+The data size evaluation is an important step when training models. Since the play style of NBA games changes rapidly as time goes, training models using more data does not mean a better prediction accuracy. As a result, the relation between training data size and performance is evaluated and the outcome is presented in Table 3. As shown in the table, training data covering three-year previous games presents the best performance and it is chosen as the optimal dataset for all our models.
 </div>
 
 <center><h4> Table 3: Data Size Evaluation </h4></center>
@@ -162,7 +162,7 @@ The data size evaluation is an important step when training models. Since the pl
 
 ### Voting
 <div align="justify">
-To prevent bias from single machine learning model, a voting mechanism, as shown in Figure 6, is applied to make the prediction decision more convincing. 5 machine learning models, including Logistic Regression, SVM, XGBoost, GBDT, and AdaBoost, are considered in the voting model owing to their better performance. The voting mechanism is simple. The decision agreed by most of the models are the final decision. Furthermore, the ratio of agreed votes to total votes is an indicator implying the confidence level of the final decision.
+To prevent bias from a single machine learning model, a voting mechanism, as shown in Figure 6, is applied to make the prediction decision more convincing. 5 machine learning models, including Logistic Regression, SVM, XGBoost, GBDT, and AdaBoost, are considered in the voting model owing to their better performance. The voting mechanism is simple. The decision agreed by most of the models is the final decision. Furthermore, the ratio of agreed votes to total votes is an indicator implying the confidence level of the final decision.
 </div>
 
 <br>
@@ -171,7 +171,7 @@ To prevent bias from single machine learning model, a voting mechanism, as shown
 
 ### Stacking
 <div align="justify">
-Stacking is a more sophisticated approach that consolidates the predictions from multiple well-trained models and use them as a new set of training attributes to train another model. It can be considered a multi-stage model or a stacked model that is helpful of preventing bias from certain models. At some level, is can be seen as a mode complicated voting mechanism. Figure 7 shows the block diagram of stacking model and the detail of how stacking works is presented in Figure 8. In this work, several combinations of different machine learning models constructing the stacked model are evaluated. In addition, both 2-stage and 3-stage stacked model are analyzed.
+Stacking is a more sophisticated approach that consolidates the predictions from multiple well-trained models and uses them as a new set of training attributes to train another model. It can be considered a multi-stage model or a stacked model that is helpful for preventing bias from certain models. At some level, is can be seen as a mode complicated voting mechanism. Figure 7 shows the block diagram of the stacking model and the details of how stacking works are presented in Figure 8. In this work, several combinations of different machine learning models constructing the stacked model are evaluated. In addition, both 2-stage and 3-stage stacked models are analyzed.
 </div>
 
 <br>
@@ -222,7 +222,7 @@ As shown in Table 4, 3-stage stacking model is slightly better than 2-stage stac
 
 ## Experimental Results
 <div align="justify">
-This work evaluates eight single-stage models, one voting model, one 2-stage stacked model, and one 3-stage stacked model. The performance comparison is summarized in Table 5. We can observe that for the single-stage esitmators, all models have decent prediction accuracy except for Naïve Bayes and LightGBM. Moreover, composite models such as voting and stacking are even more accurate than single-stage estimators. AdaBoost, 2-stage stacked, and 3-stage stacked models possess the peak performance of 76.8 % prediction accuracy. In conclusion, stacked machine learning model is an appropriate approach for our task.
+This work evaluates eight single-stage models, one voting model, one 2-stage stacked model, and one 3-stage stacked model. The performance comparison is summarized in Table 5. We can observe that for the single-stage estimators, all models have decent prediction accuracy except for Naïve Bayes and LightGBM. Moreover, composite models such as voting and stacking are even more accurate than single-stage estimators. AdaBoost, 2-stage stacked, and 3-stage stacked models possess the peak performance of 76.8 % prediction accuracy. In conclusion, stacked machine learning model is an appropriate approach for our task.
 </div>
 
 <center><h4> Table 5: 2018 NBA Playoff Game Winning Prediction </h4></center>
@@ -263,7 +263,7 @@ This work evaluates eight single-stage models, one voting model, one 2-stage sta
 </table>
 
 <div align="justify">
-The most important games in NBA are Eastern/Western Finals and the Conference Finals. GBDT is applied as an example to show our predictions on each game as shown in Table 6. The accuracy of the model prediction manifests the tension of the games to some extent. For example, in the 2018 NBA Conference Finals, Golden State Warriors swept Cleveland Cavaliers and our model precisely predicted the fact without incorrect predictions. As shown in the table, only one game had confidence level lower than 60% and that game was indeed more intense than the other three games. As for Eastern and Western Conference Finals, since both matchups were more competitive, the resulting confidence level of our model was lower compared to the Conference Finals. In summary, this work designs a machine learning model that can reach prediction accuracy of 85.7%, 71.4%, and 100%  for Eastern Conference Final, Western Conference Finals, and Conference Finals, respectively.
+The most important games in the NBA are Eastern/Western Finals and the Conference Finals. GBDT is applied as an example to show our predictions on each game as shown in Table 6. The accuracy of the model prediction manifests the tension of the games to some extent. For example, in the 2018 NBA Conference Finals, Golden State Warriors swept Cleveland Cavaliers and our model precisely predicted the fact without incorrect predictions. As shown in the table, only one game had a confidence level lower than 60% and that game was indeed more intense than the other three games. As for Eastern and Western Conference Finals, since both matchups were more competitive, the resulting confidence level of our model was lower compared to the Conference Finals. In summary, this work designs a machine learning model that can reach prediction accuracy of 85.7%, 71.4%, and 100%  for Eastern Conference Final, Western Conference Finals, and Conference Finals, respectively.
 </div>
 
 <center><h4> Table 6: 2018 NBA Finals/Semi-Finals Game Winning Prediction by GBDT Model </h4></center>
