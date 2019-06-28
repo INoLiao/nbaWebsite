@@ -18,7 +18,7 @@ The mission of this work is to precisely predict NBA games' winning and losing r
 
 <br>
 <img src="{{ site.baseurl }}/assets/img/problem_definition_1.png" alt="Problem Definition"/>
-<center><h4> Figrue 1: Problem definition. </h4></center>
+<center><h4> Figure 1: Problem definition. </h4></center>
 
 ## Dataset
 <div align="justify">
@@ -27,7 +27,7 @@ This work predicts NBA games based on the dataset collected from the <a href="ht
 
 <br>
 <img src="{{ site.baseurl }}/assets/img/dataset_1.png" alt="Number of games played by each team"/>
-<center><h4> Figrue 2: Statistics of the number of games played by each NBA team. </h4></center>
+<center><h4> Figure 2: Statistics of the number of games played by each NBA team. </h4></center>
 
 <div align="justify">
 Before processing our data, a classification regarding data types is conducted. Table 1 shows data types of the dataset. As we can see, most of the data are numeric. There is one categorical data, Team, and there are two binary data, Win/Lose and Home/Away. Our target is to precisely predict which team wins a game when two teams meet. Therefore, Win/Lose is the label and our machine learning model predicts the Win/Lose outcome and provides the confidence level of its prediction.
@@ -60,7 +60,7 @@ Typical data preprocessing is conducted as shown in Figure 3. Preprocessing incl
 
 <br>
 <img src="{{ site.baseurl }}/assets/img/data_preprocessing_1.png" alt="Data preprocessing block diagram"/>
-<center><h4> Figrue 3: Data preprocessing flow chart. </h4></center>
+<center><h4> Figure 3: Data preprocessing flow chart. </h4></center>
 
 <div align="justify">
 To train machine learning models, feature extraction is carried out as shown in Figure 4 and 5. Firstly, select the attributes that are more representative to the winning or losing of games. Then, put all selected attributes in a vector. The attribute X is the average performance considered from previous games played by two teams prior to the date we target to predict. In other words, attribute X represents the teams' recent status. Label Y is Win/Lose since we would like to predict which team wins the game.
@@ -68,11 +68,11 @@ To train machine learning models, feature extraction is carried out as shown in 
 
 <br>
 <img src="{{ site.baseurl }}/assets/img/feature_extraction_1.png" alt="Feature extraction"/>
-<center><h4> Figrue 4: Feature extraction. </h4></center>
+<center><h4> Figure 4: Feature extraction. </h4></center>
 
 <br>
 <center><img src="{{ site.baseurl }}/assets/img/feature_extraction_2.png" alt="Feature extraction" width="550"/></center>
-<center><h4> Figrue 5: How attribute X and label Y look like. </h4></center>
+<center><h4> Figure 5: How attribute X and label Y look like. </h4></center>
 
 ## Model Training and Testing
 <div align="justify">
@@ -167,7 +167,7 @@ To prevent bias from a single machine learning model, a voting mechanism, as sho
 
 <br>
 <img src="{{ site.baseurl }}/assets/img/voting_1.png" alt="Voting Model"/>
-<center><h4> Figrue 6: Voting model. </h4></center>
+<center><h4> Figure 6: Voting model. </h4></center>
 
 ### Stacking
 <div align="justify">
@@ -176,11 +176,11 @@ Stacking is a more sophisticated approach that consolidates the predictions from
 
 <br>
 <img src="{{ site.baseurl }}/assets/img/stacking_1.png" alt="Stacking Model"/>
-<center><h4> Figrue 7: Stacking model. </h4></center>
+<center><h4> Figure 7: Stacking model. </h4></center>
 
 <br>
 <img src="{{ site.baseurl }}/assets/img/stacking_2.png" alt="Stacking Model"/>
-<center><h4> Figrue 8: Details in stacking block. </h4></center>
+<center><h4> Figure 8: Details in stacking block. </h4></center>
 
 <div align="justify">
 As shown in Table 4, 3-stage stacking model is slightly better than 2-stage stacking model. To thoroughly consider all models, 2-stage stacking of SVM/GBDT/XGBoost + AdaBoost and 3-stage stacking of SVM/XGBoost + RF/GBDT + AdaBoost are selected for the consideration of the final performance comparison.
