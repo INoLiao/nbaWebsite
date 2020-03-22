@@ -4,7 +4,7 @@ title: NBA Game Prediction
 ---
 
 # NBA Game Prediction System Using Composite Stacked Machine Learning Model
-#### <a href="https://inoliao.github.io/portfolio/" target="_blank">I-No Liao</a>
+#### <a href="https://inoliao.info" target="_blank">I-No Liao</a>
 
 ## Abstract
 <div align="justify">
